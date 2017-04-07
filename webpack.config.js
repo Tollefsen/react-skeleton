@@ -13,6 +13,20 @@ module.exports = {
         query: {
           presets: ["es2015", "react"]
         }
+      },
+      {
+        test: /\.css$/,
+        loader: combineLoaders([
+          {
+            loader: 'style-loader'
+          }, {
+            loader: 'css-loader',
+            query: {
+              modules: true,
+              localIdentName: '[local]'//'[name]__[local]___[hash:base64:5]'
+            }
+          }
+        ])
       }
     ]
   },
